@@ -19,6 +19,14 @@ $(function(){
         }
     }
 
+    //the vue initialization 
+    let brandName = new Vue({
+        el: '#brandName',
+        data: {
+            message: ''
+        }
+        })
+
     //uploading an image
     document.getElementById('fileinput').addEventListener('change', () => {
             let file = this.file;

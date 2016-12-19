@@ -1,0 +1,43 @@
+<div class="row">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s8 right">
+            <input v-model="brandName" placeholder="Brand Name" name="brandName" id="brandName" type="text" class="validate" required>
+            <label for="brandName">Brand Name</label>        
+            <p>Message is: {{ brandName }}</p>
+        </div>
+        <div class="row">
+            <div class="col s8 right">
+            <label id="imageUpload" for="fileinput">Image upload</label>  
+            <input type="file" id="fileinput" id="uploadfiles" multiple="multiple" accept="image/*" />
+        </div>
+        <div class="row">
+            <div class="input-field col s8 right">
+            <input v-model.number="maxUsers" placeholder="Maximum number of users" name="maxUsers" id="maxUsers" type="number" class="validate" required>
+            <label for="maxUsers">Maximum number of users</label> 
+            <p>Message is: {{ maxUsers }}</p>      
+        </div>
+        <div class="row">
+            <div class="input-field col s8 right">
+            <input v-model.number="maxStories" placeholder="Maximum number of stories" name="maxStories" id="maxStoriess" type="number" class="validate" required>
+            <label for="maxUsers">Maximum number of stories</label>    
+            <p>Message is: {{ maxStories }}</p>    
+        </div>
+        <div class="row">
+            <div class="input-field col s8 right">
+            <input v-model.number="maxSurveys" placeholder="Maximum number of surveys" name="maxSurveys" id="maxSurveys" type="number" class="validate" required>
+            <label for="maxUsers">Maximum number of surveys</label>   
+            <p>Message is: {{ maxSurveys }}</p>     
+        </div>
+        <div class="row">
+            <div class="input-field col s8 right">
+            <input v-model.number="maxDocs" placeholder="Maximum number of documents" name="maxDocs" id="maxDocs" type="number" class="validate" required>
+            <label for="maxUsers">Maximum number of documents</label>   
+            <p>Message is: {{ maxDocs }}</p>     
+        </div>
+    </form>
+</div>
+<button class="btn waves-effect waves-light right" type="submit" name="action" onclick="runBee()">Submit</button>
+<br>
+
+

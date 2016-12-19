@@ -1,0 +1,28 @@
+body {
+    color: black;
+    font-family: serif;
+}
+
+/**
+*style of the progress bar
+*/
+#myProgress {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: grey;
+}
+#myBar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: green;
+}
+
+/*
+* styling for the upload label
+*/
+#imageUpload {
+    font-size: 12px;
+}
+

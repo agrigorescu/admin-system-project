@@ -1,0 +1,22 @@
+{
+  "name": "admin-system-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "butterfly.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andreea Grigorescu",
+  "license": "ISC",
+  "bin": {
+    "butterfly": "./butterfly.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "commander": "^2.9.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.2.0",
+    "vue": "^2.1.6"
+  }
+}

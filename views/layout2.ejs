@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin</title>
+        <!--load the css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.css">
+        <link type="text/css" rel="stylesheet" href="css/mycss.css">
+    </head>
+    </body>
+    <!--start of the navigation bar-->
+    <% include ./partials/navigation %>
+    <!--end of navigation-->
+        
+    <h1>Admin System</h1>
+    <p>Thank you for submitting the form</p>
+    <template v-if="loginType === 'username'">
+    <label>Username</label>
+    <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+    <label>Email</label>
+    <input placeholder="Enter your email address" key="email-input">
+    </template>
+   
+
+    <!--link the javascript files-->
+    <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="js/materialize.js" type="text/javascript"></script>
+    <script src="js/myjavascript.js" type="text/javascript"></script>
+    </body>
+</html>

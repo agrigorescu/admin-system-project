@@ -1,4 +1,8 @@
 #!/usr/bin/env node --harmony
+/**
+ * Butterfly CLI
+ */
+
 'use strict'; //this command will allow me to use EC6 code only
 /**
  * dependencies used
@@ -22,20 +26,17 @@ app.use(express.static('public'));
 app.use(routes);
 
 /**
- * setting up the app to be run globally
+ * setting up the app to run the server
  */
 program
     .action(() => {
       /**
-       * creating the server
+       * creating the server and sending back the status code
        */
       const server = http.createServer((req, res) => {
         res.statusCode = 200;
       });
  })
-
-//exporting the program so that it can be installed
- .parse(process.argv);
 
 /**
  * setting up the port

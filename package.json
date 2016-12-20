@@ -1,7 +1,7 @@
 {
   "name": "admin-system-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "admin system that clones a git repo and creates a new heroku app",
   "main": "butterfly.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

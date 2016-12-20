@@ -19,38 +19,29 @@ $(function(){
         }
     }
 
-    //the vue initialization 
-    let brandName = new Vue({
-        el: '#brandName',
-        data: {
-            message: ''
+    $("form").submit(function(e) {
+        let form = this;
+        e.preventDefault(); //Stop the submit for now
+        //Replace with your selector to find the file input in your form
+        let fileInput = $(this).find("input[type=file]")[0];
+        let file = fileInput.files && fileInput.files[0];
+        if( file ) {
+            let img = new Image();
+            img.src = window.URL.createObjectURL( file );
+            img.onload = () => {
+                let width = img.naturalWidth;
+                let height = img.naturalHeight;
+                window.URL.revokeObjectURL( img.src );
+                if( width <= 1024 && height == 1024 ) {
+                    console.log("the image is fine");
+                    form.submit();
+                } else {
+                //fail
+                }
+            };
+        } else { 
+            //No file was input or browser doesn't support client side reading
+            form.submit();
         }
-        })
-
-    //uploading an image
-    document.getElementById('fileinput').addEventListener('change', () => {
-            let file = this.file;
-        }, false);
-    function uploadFile(file){
-        let url = '/';
-        let xhr = new XMLHttpRequest();
-        let fd = new FormData();
-        xhr.open("POST", url, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Every thing ok, file uploaded
-                console.log(xhr.responseText); // handle response.
-            }
-        };
-        fd.append("upload_file", file);
-        xhr.send(fd);
-    }
-    let uploadfiles = document.getElementById('uploadfiles');
-    uploadfiles.addEventListener('change', () => {
-            uploadFile(this.files[i]); // call the function to upload the file
-    }, false);
-
-
-
-
-});
+    });
+})

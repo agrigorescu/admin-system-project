@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Admin</title>
+        <!--vue.js needs to be loaded before the inline scripts-->
+        <script src="js/vue.js" type="text/javascript"></script>
         <!--load the css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.css">
         <link type="text/css" rel="stylesheet" href="css/mycss.css">
@@ -14,7 +16,9 @@
     <h1>Admin System</h1>
     <h3 class="center">Form</h3>
     <!--form-->
-    <% include ./partials/form %>
+    <div id="app">
+        <% include ./partials/form %>
+    </div>
     <!--end of form-->
     <br>
     <!--progress bar-->
@@ -25,7 +29,7 @@
     <!--link the javascript files-->
     <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
     <script src="js/materialize.js" type="text/javascript"></script>
-    <script src="js/vue.js" type="text/javascript"></script>
     <script src="js/myjavascript.js" type="text/javascript"></script>
+    <script src="js/form-demo.js" type="text/javascript"></script>
     </body>
 </html>

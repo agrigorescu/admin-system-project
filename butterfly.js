@@ -13,6 +13,7 @@ const routes = require("./routes/routes");
 const http = require("http");
 const program = require("commander");
 const app = express();
+const runBee = require("./routes/routeBee");
 
 //view engine
 app.set('view engine', 'ejs');
@@ -24,6 +25,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('public'));
 app.use(routes);
+app.use(runBee);
+
 
 /**
  * setting up the app to run the server

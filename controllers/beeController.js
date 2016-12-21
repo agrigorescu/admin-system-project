@@ -1,7 +1,7 @@
 const BeeIndex = require("../bee/index");
 
 class Bee {
-    static runBee(req, res) {
+    static runBee() {
         BeeIndex.promiseResolve()
             .then(() => {
                 console.log("It worked!");

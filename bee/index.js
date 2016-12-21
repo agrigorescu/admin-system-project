@@ -13,6 +13,18 @@ const path = require("path");//to get the path
 let username;
 let password;
 let currentLoc;
+/**
+ * Load the changes that are to be made in an object. 
+ */
+
+let changesToGit = {
+    name: "Brand Name",
+    maxUsers: '2',
+    maxStories: '2',
+    maxSurveys: '2',
+    maxDocs: '2',
+    imageUpload: "link to the image"
+}
 
 /**
  * This function include calls to all the promises required to run the app
@@ -112,18 +124,7 @@ function gitClone() {
     )
 };
 
-/**
- * Load the changes that are to be made in an object. 
- */
 
-let changesToGit = {
-    name: "Brand Name",
-    maxUsers: '2',
-    maxStories: '2',
-    maxSurveys: '2',
-    maxDocs: '2',
-    imageUpload: "link to the image"
-}
 
 /**
  * This function will create a file with the information provided
@@ -312,9 +313,3 @@ function pushHerokuApp(username, password) {
 }
 
 module.exports.promiseResolve = promiseResolve;
-
-// //making this a program to be run via the command line
-// program
-//     //setting the actions of the program
-//     .action(promiseResolve())
-

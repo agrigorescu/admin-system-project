@@ -30,30 +30,30 @@ function promiseResolve(obj) {
                     console.log(obj);
                     return Promise.all([updateGitClone(obj)]);
                 })
-                // .then(() => {
-                //     return Promise.all([changeWorkingDirectory()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([createHerokuApp()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([addHerokuProvisionsSendgrid()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([addHerokuProvisionsMongoLab()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([addHerokuProvisionsRedis()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([addHerokuProvisionsCloudinary()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([pushHerokuApp()]);
-                // })
-                // .then(() => {
-                //     return Promise.all([deleteDir()]);
-                // })
+                .then(() => {
+                    return Promise.all([changeWorkingDirectory()]);
+                })
+                .then(() => {
+                    return Promise.all([createHerokuApp()]);
+                })
+                .then(() => {
+                    return Promise.all([addHerokuProvisionsSendgrid()]);
+                })
+                .then(() => {
+                    return Promise.all([addHerokuProvisionsMongoLab()]);
+                })
+                .then(() => {
+                    return Promise.all([addHerokuProvisionsRedis()]);
+                })
+                .then(() => {
+                    return Promise.all([addHerokuProvisionsCloudinary()]);
+                })
+                .then(() => {
+                    return Promise.all([pushHerokuApp()]);
+                })
+                .then(() => {
+                    return Promise.all([deleteDir()]);
+                })
                 .then(() => {
                     console.log("Done");
                     resolve();
@@ -129,7 +129,7 @@ function createNewFileWithChanges(programName, dir) {
                     console.log(err);
                     reject(err);
                 } else {
-                    console.log(result);
+                    console.log("the result is "+result);
                     console.log("Created : " + programName.substring(1));
                     resolve();
                 }
@@ -147,7 +147,7 @@ function updateGitClone(obj) {
             console.log("the third print");
             console.log(obj);
             let changesToGit = obj;
-            createNewFileWithChanges(currentLoc + '/test.txt', changesToGit)
+            createNewFileWithChanges(currentLoc + '/test.txt', JSON.stringify(changesToGit))
                 .then(() => {
                     console.log('The data was added to file!');
                     resolve();

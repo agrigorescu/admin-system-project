@@ -10,8 +10,8 @@
 const program = require('commander'); //required for creating the cli app - not sure if i need it
 const mkdirp = require('mkdirp'); //required for makinf a directory.
 const fs = require('fs-extra'); //required to remove a file
-const exec = require('child_process').exec; //this is user to be able to run command line commands
-const shell = require('shelljs');
+const exec = require('child_process').exec; //this is used to be able to run command line commands
+const shell = require('shelljs');//this is used to be able to run command line commands
 
 //creating a global variable that will save the location for further use
 let currentLoc;

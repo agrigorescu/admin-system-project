@@ -1,30 +1,20 @@
 #!/usr/bin/env node --harmony
 /**
  * The prototype of the Bee CLI fo the Admin System
+ * This CLI creates a directory into wich it clones a template repo from git.
+ * Then adds some data from an object into a txt file and then creates a heroku app.
+ * It then adds specific provisions to the heroku app and then pushes the code to heroku. 
+ * After it deletes the file in which the cloned git repo is.
  */
 //including the libraries required
-const prompt = require('prompt'); //requred for reading the username and passwords
 const program = require('commander'); //required for creating the cli app - not sure if i need it
 const mkdirp = require('mkdirp'); //required for makinf a directory.
 const fs = require('fs-extra'); //required to remove a file
 const exec = require('child_process').exec; //this is user to be able to run command line commands
 const shell = require('shelljs');
-const path = require("path");//to get the path
-let username;
-let password;
-let currentLoc;
-/**
- * Load the changes that are to be made in an object. 
- */
-//  {
-//     name: "Brand Name",
-//     maxUsers: '2',
-//     maxStories: '2',
-//     maxSurveys: '2',
-//     maxDocs: '2',
-//     imageUpload: "link to the image"
-// }
 
+//creating a global variable that will save the location for further use
+let currentLoc;
 
 /**
  * This function include calls to all the promises required to run the app
@@ -111,9 +101,10 @@ function createDir() {
 function gitClone() {
     return new Promise(
         (resolve, reject) => {
+            console.log("cloning the git repo");
             exec("git clone https://github.com/agrigorescu/admin-contact-demo-object.git gitProjectClone", (error, stdout, stderr) => {
                 if (error) {
-                    console.log("error " + error);
+                    console.log("Cloning could not be complerted because of error " + error);
                     reject(error);
                 } else {
                     console.log("stdout " + stdout);
@@ -153,6 +144,7 @@ function createNewFileWithChanges(programName, dir) {
 function updateGitClone(obj) {
     return new Promise(
         (resolve, reject) => {
+            console.log("the third print");
             console.log(obj);
             let changesToGit = obj;
             createNewFileWithChanges(currentLoc + '/test.txt', changesToGit)
@@ -193,7 +185,7 @@ function changeWorkingDirectory(username, password) {
     return new Promise(
         (resolve, reject) => {
             shell.cd('gitProjectClone');
-            console.log(process.cwd());
+            console.log("The program is in "+process.cwd());
             resolve();
         }
     )
@@ -205,13 +197,14 @@ function changeWorkingDirectory(username, password) {
 function createHerokuApp() {
     return new Promise(
         (resolve, reject) => {
+            console.log("Create the Heroku app");
             exec("heroku create", (error, stdout, stderr) => {
                 if (error) {
                     console.log("error " + error);
                     reject(error);
                 } else {
-                    console.log("stdout " + stdout);
-                    console.log("stderr " + stderr);
+                    console.log("The epp can be found at " + stdout);
+                    console.log(stderr);
                     resolve();
                 }
             })
@@ -226,13 +219,14 @@ function createHerokuApp() {
 function addHerokuProvisionsSendgrid(username, password) {
     return new Promise(
         (resolve, reject) => {
+            console.log("Adding Sendgrid");
             exec("heroku addons:create sendgrid:starter", (error, stdout, stderr) => {
                 if (error) {
                     console.log("error " + error);
                     reject(error);
                 } else {
-                    console.log("stdout " + stdout);
-                    console.log("stderr " + stderr);
+                    console.log(stdout);
+                    console.log(stderr);
                     resolve();
                 }
             })
@@ -244,13 +238,14 @@ function addHerokuProvisionsSendgrid(username, password) {
 function addHerokuProvisionsMongoLab(username, password) {
     return new Promise(
         (resolve, reject) => {
+            console.log("Adding MongoLab");
             exec("heroku addons:create mongolab:sandbox", (error, stdout, stderr) => {
                 if (error) {
                     console.log("error " + error);
                     reject(error);
                 } else {
-                    console.log("stdout " + stdout);
-                    console.log("stderr " + stderr);
+                    console.log(stdout);
+                    console.log(stderr);
                     resolve();
                 }
             })
@@ -262,13 +257,14 @@ function addHerokuProvisionsMongoLab(username, password) {
 function addHerokuProvisionsRedis(username, password) {
     return new Promise(
         (resolve, reject) => {
+            console.log("Adding Heroku Redis");
             exec("heroku addons:create heroku-redis:hobby-dev", (error, stdout, stderr) => {
                 if (error) {
                     console.log("error " + error);
                     reject(error);
                 } else {
-                    console.log("stdout " + stdout);
-                    console.log("stderr " + stderr);
+                    console.log(stdout);
+                    console.log(stderr);
                     resolve();
                 }
             })
@@ -280,13 +276,14 @@ function addHerokuProvisionsRedis(username, password) {
 function addHerokuProvisionsCloudinary(username, password) {
     return new Promise(
         (resolve, reject) => {
+            console.log("Adding Cloudinary");
             exec("heroku addons:create cloudinary:starter", (error, stdout, stderr) => {
                 if (error) {
                     console.log("error " + error);
                     reject(error);
                 } else {
-                    console.log("stdout " + stdout);
-                    console.log("stderr " + stderr);
+                    console.log(stdout);
+                    console.log(stderr);
                     resolve();
                 }
             })
@@ -306,8 +303,8 @@ function pushHerokuApp(username, password) {
                     console.log("error " + error);
                     reject(error);
                 } else {
-                    console.log("stdout " + stdout);
-                    console.log("stderr " + stderr);
+                    console.log(stdout);
+                    console.log(stderr);
                     resolve();
                 }
             })

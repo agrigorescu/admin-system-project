@@ -16,20 +16,20 @@ let currentLoc;
 /**
  * Load the changes that are to be made in an object. 
  */
+//  {
+//     name: "Brand Name",
+//     maxUsers: '2',
+//     maxStories: '2',
+//     maxSurveys: '2',
+//     maxDocs: '2',
+//     imageUpload: "link to the image"
+// }
 
-let changesToGit = {
-    name: "Brand Name",
-    maxUsers: '2',
-    maxStories: '2',
-    maxSurveys: '2',
-    maxDocs: '2',
-    imageUpload: "link to the image"
-}
 
 /**
  * This function include calls to all the promises required to run the app
  */
-function promiseResolve() {
+function promiseResolve(obj) {
     return new Promise(
         (resolve, reject) => {
             createDir()
@@ -37,32 +37,33 @@ function promiseResolve() {
                     return Promise.all([gitClone()]);
                 })
                 .then(() => {
-                    return Promise.all([updateGitClone()]);
+                    console.log(obj);
+                    return Promise.all([updateGitClone(obj)]);
                 })
-                .then(() => {
-                    return Promise.all([changeWorkingDirectory()]);
-                })
-                .then(() => {
-                    return Promise.all([createHerokuApp()]);
-                })
-                .then(() => {
-                    return Promise.all([addHerokuProvisionsSendgrid()]);
-                })
-                .then(() => {
-                    return Promise.all([addHerokuProvisionsMongoLab()]);
-                })
-                .then(() => {
-                    return Promise.all([addHerokuProvisionsRedis()]);
-                })
-                .then(() => {
-                    return Promise.all([addHerokuProvisionsCloudinary()]);
-                })
-                .then(() => {
-                    return Promise.all([pushHerokuApp()]);
-                })
-                .then(() => {
-                    return Promise.all([deleteDir()]);
-                })
+                // .then(() => {
+                //     return Promise.all([changeWorkingDirectory()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([createHerokuApp()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([addHerokuProvisionsSendgrid()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([addHerokuProvisionsMongoLab()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([addHerokuProvisionsRedis()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([addHerokuProvisionsCloudinary()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([pushHerokuApp()]);
+                // })
+                // .then(() => {
+                //     return Promise.all([deleteDir()]);
+                // })
                 .then(() => {
                     console.log("Done");
                     resolve();
@@ -149,10 +150,12 @@ function createNewFileWithChanges(programName, dir) {
 /**
  * This function will make changes to the git repo using an object
  */
-function updateGitClone() {
+function updateGitClone(obj) {
     return new Promise(
         (resolve, reject) => {
-            createNewFileWithChanges(currentLoc + '/test.txt', JSON.stringify(changesToGit, null, 2) + '\n')
+            console.log(obj);
+            let changesToGit = obj;
+            createNewFileWithChanges(currentLoc + '/test.txt', changesToGit)
                 .then(() => {
                     console.log('The data was added to file!');
                     resolve();

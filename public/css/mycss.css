@@ -21,4 +21,35 @@ h1 {
     background-color: cornflowerblue;
 }
 
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid cornflowerblue;
+    box-shadow: 0 1px 0 0 cornflowerblue;
+}
+
+.input-field input[type=text].valid {
+    border-bottom: 1px solid cornflowerblue;
+    box-shadow: 0 1px 0 0 cornflowerblue
+}
+
+/* label underline focus color for email */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid cornflowerblue;
+    box-shadow: 0 1px 0 0 cornflowerblue;
+}
+.input-field input[type=number].invalid {
+    border-bottom: 1px solid cornflowerblue;
+    box-shadow: 0 1px 0 0 cornflowerblue;
+}
+
+.input-field input[type=number].valid {
+    border-bottom: 1px solid cornflowerblue;
+    box-shadow: 0 1px 0 0 cornflowerblue
+}
+
+/* label underline focus color for email */
+.input-field input[type=number]:focus {
+    border-bottom: 1px solid cornflowerblue;
+    box-shadow: 0 1px 0 0 cornflowerblue;
+}
+
 

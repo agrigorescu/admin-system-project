@@ -13,11 +13,13 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "chai-fs": "^1.0.0",
     "commander": "^2.9.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
-    "vue": "^2.1.6",
-    "shelljs":"~0.7.5"
+    "shelljs": "~0.7.5",
+    "vue": "^2.1.6"
   }
 }

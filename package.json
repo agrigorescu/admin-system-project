@@ -13,8 +13,6 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
-    "chai": "^3.5.0",
-    "chai-fs": "^1.0.0",
     "commander": "^2.9.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",

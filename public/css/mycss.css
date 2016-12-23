@@ -1,3 +1,4 @@
+/*basic styling*/
 body {
     color: black;
     font-family: serif;
@@ -16,40 +17,44 @@ h1 {
     margin-top: -2.2vw;
 }
 
+/*setting the color of the button in all the stages*/
 .btn, .btn:hover, .btn:active, .btn:valid {
     margin: 0 5vw 5vw 0;
     background-color: cornflowerblue;
 }
 
+/* label underline invalid color for text */
 .input-field input[type=text].invalid {
     border-bottom: 1px solid cornflowerblue;
     box-shadow: 0 1px 0 0 cornflowerblue;
 }
 
+/* label underline valid color for text */
 .input-field input[type=text].valid {
     border-bottom: 1px solid cornflowerblue;
     box-shadow: 0 1px 0 0 cornflowerblue
 }
 
-/* label underline focus color for email */
+/* label underline focus color for text */
 .input-field input[type=text]:focus {
     border-bottom: 1px solid cornflowerblue;
     box-shadow: 0 1px 0 0 cornflowerblue;
 }
+
+/* label underline invalid color for number */
 .input-field input[type=number].invalid {
     border-bottom: 1px solid cornflowerblue;
     box-shadow: 0 1px 0 0 cornflowerblue;
 }
 
+/* label underline valid color for number */
 .input-field input[type=number].valid {
     border-bottom: 1px solid cornflowerblue;
     box-shadow: 0 1px 0 0 cornflowerblue
 }
 
-/* label underline focus color for email */
+/* label underline focus color for number */
 .input-field input[type=number]:focus {
     border-bottom: 1px solid cornflowerblue;
     box-shadow: 0 1px 0 0 cornflowerblue;
 }
-
-

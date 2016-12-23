@@ -35,6 +35,8 @@ program
     .action(() => {
       /**
        * creating the server and sending back the status code
+       * @param req,
+       * @param res
        */
       const server = http.createServer((req, res) => {
         res.statusCode = 200;

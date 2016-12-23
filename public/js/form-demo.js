@@ -1,3 +1,6 @@
+/**
+ * Creating an instance of the Vue class
+ * */ 
 var app = new Vue({
     el: '#app',
     data: { 
@@ -7,6 +10,7 @@ var app = new Vue({
             maxSurveys: '',
             maxDocs: ''
     },
+    // submitting the post request to the Bee CLI to start running
     methods: {
         submit: function (event){
             event.preventDefault();

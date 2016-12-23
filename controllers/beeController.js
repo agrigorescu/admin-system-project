@@ -1,3 +1,9 @@
+/**
+ * Bee class is used to run the Bee CLI
+ * @param req,
+ * @param res,
+ * @param req.body.data - this packages the data from the Vue object and sends it the Bee CLI
+ */
 const BeeIndex = require("../bee/index");
 
 class Bee {

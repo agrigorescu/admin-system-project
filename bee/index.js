@@ -216,7 +216,7 @@ function createHerokuApp() {
  * This set of functions adds provisions to the heroku app 
  */
 //The first function add Sendgrid
-function addHerokuProvisionsSendgrid(username, password) {
+function addHerokuProvisionsSendgrid() {
     return new Promise(
         (resolve, reject) => {
             console.log("Adding Sendgrid");
@@ -235,7 +235,7 @@ function addHerokuProvisionsSendgrid(username, password) {
 };
 
 //The second function will add MongoLab
-function addHerokuProvisionsMongoLab(username, password) {
+function addHerokuProvisionsMongoLab() {
     return new Promise(
         (resolve, reject) => {
             console.log("Adding MongoLab");
@@ -254,7 +254,7 @@ function addHerokuProvisionsMongoLab(username, password) {
 };
 
 //The next function will add Redis DB
-function addHerokuProvisionsRedis(username, password) {
+function addHerokuProvisionsRedis() {
     return new Promise(
         (resolve, reject) => {
             console.log("Adding Heroku Redis");
@@ -273,7 +273,7 @@ function addHerokuProvisionsRedis(username, password) {
 };
 
 //This funciton will add Cloudinary
-function addHerokuProvisionsCloudinary(username, password) {
+function addHerokuProvisionsCloudinary() {
     return new Promise(
         (resolve, reject) => {
             console.log("Adding Cloudinary");
@@ -294,7 +294,7 @@ function addHerokuProvisionsCloudinary(username, password) {
 /**
  * This function pushes the app to heroku
  */
-function pushHerokuApp(username, password) {
+function pushHerokuApp() {
     return new Promise(
         (resolve, reject) => {
             console.log("Pushing to Heroku");
